@@ -7,8 +7,7 @@ const int SCREEN_HEIGHT = 600;
 // The window we'll be rendering to
 SDL_Window *window = NULL;
 
-// The surface contained by the window
-SDL_Surface *screen_surface = NULL;
+// The window renderer
+SDL_Renderer *renderer = NULL;
 
-// Current displayed PNG image
-SDL_Surface *background_surface = NULL;
+Texture_storage texture_storage = {.tx = NULL, .lenght = 0};

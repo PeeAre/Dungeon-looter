@@ -2,23 +2,22 @@
 #include "load.h"
 #include "params.h"
 #include "render.h"
+#include "events.h"
 
 int main(int argc, char *args[])
 {
   int quit = 0;
-  SDL_Event e;
 
-  init();
+  if (init())
+    return 1;
 
-  while (!quit)
+  while (!quit) // game loop
   {
-    while (SDL_PollEvent(&e) != 0)
-      if (e.type == SDL_QUIT)
-        quit = 1;
-
     render();
+    quit = handle_events();
   }
 
   free_sdl_resources();
+
   return 0;
 }
